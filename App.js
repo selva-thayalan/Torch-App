@@ -10,6 +10,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {View,Text,StyleSheet,TouchableOpacity, Animated, TouchableWithoutFeedback, PermissionsAndroid, Alert} from 'react-native';
 import Torch from 'react-native-torch';
 import Slider from  '@react-native-community/slider';
+import DefaultPreference from 'react-native-default-preference';
 import ScreenBrightness from 'react-native-screen-brightness';
 import { TriangleColorPicker, fromHsv } from 'react-native-color-picker';
 import _ from 'lodash';
