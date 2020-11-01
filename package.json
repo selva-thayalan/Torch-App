@@ -1,0 +1,36 @@
+{
+  "name": "flashLightDemoApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "watch-need-help": "echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances && echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events && echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches && watchman shutdown-server"
+  },
+  "dependencies": {
+    "@react-native-community/slider": "^3.0.3",
+    "lodash": "^4.17.20",
+    "react": "16.13.1",
+    "react-native": "0.63.3",
+    "react-native-color-picker": "^0.6.0",
+    "react-native-default-preference": "^1.4.3",
+    "react-native-screen-brightness": "^2.0.0-alpha",
+    "react-native-torch": "^1.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
