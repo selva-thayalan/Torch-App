@@ -17,6 +17,7 @@
     "react-native": "0.63.3",
     "react-native-color-picker": "^0.6.0",
     "react-native-default-preference": "^1.4.3",
+    "react-native-navigation": "^7.3.0",
     "react-native-screen-brightness": "^2.0.0-alpha",
     "react-native-torch": "^1.1.5"
   },
