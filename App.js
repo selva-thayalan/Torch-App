@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import {View,Text,StyleSheet,TouchableOpacity, Animated, TouchableWithoutFeedback, PermissionsAndroid, Alert} from 'react-native';
 import Torch from 'react-native-torch';
 import Slider from  '@react-native-community/slider';
@@ -14,10 +14,11 @@ import DefaultPreference from 'react-native-default-preference';
 import ScreenBrightness from 'react-native-screen-brightness';
 import { TriangleColorPicker, fromHsv } from 'react-native-color-picker';
 import _ from 'lodash';
+import { Navigation } from 'react-native-navigation';
 
 const TORCH_MODE = {FRONT_SCREEN:0,BACK_LIGHT:1}
 
-const App: () => React$Node = () => {
+const App: () => React$Node = (props) => {
 
   const switchThumbPosition = useState(new Animated.ValueXY({x:0,y:0}))[0];
   const [torchState,setTorchState] = useState(false);
@@ -159,7 +160,14 @@ const App: () => React$Node = () => {
         clearInterval(intervalId);
       onBackTorchState(value);
     }
-    Shared
+  }
+
+  const goToSettings = () =>{
+    Navigation.push(props.componentId,{
+      component:{
+        name:'Settings'
+      }
+    })
   }
 
   return (
@@ -188,7 +196,10 @@ const App: () => React$Node = () => {
             defaultColor={frontColor}
             onColorChange={ onChangeFunc }/>
           <TouchableOpacity style={styles.Button} onPress={toggleTorchMode}>
-            <Text>On</Text>
+            <Text>{torchMode === TORCH_MODE.FRONT_SCREEN ? "back" : "front"}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.Button} onPress={goToSettings}>
+            <Text>Settings</Text>
           </TouchableOpacity>
         </View> : null}
       </View>
@@ -230,6 +241,5 @@ const styles= StyleSheet.create({
     borderRadius:100
   }
 });
-
 
 export default App;
